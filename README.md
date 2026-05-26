@@ -1,7 +1,7 @@
 # Giffy and the Mango Tree
 ### An Interactive HTML5 Canvas Storybook
 
-A 4-page animated storybook built exclusively with **HTML5 Canvas**, **CSS**, and **vanilla JavaScript** — no frameworks or libraries.
+A 4-page animated storybook built exclusively with **HTML5 Canvas**, **CSS**, and **vanilla JavaScript** - no frameworks or libraries.
 
 **Live demo:** https://sharonnjogorio.github.io/Multimedia-Graphics-API-Lab/
 
@@ -24,10 +24,10 @@ A 4-page animated storybook built exclusively with **HTML5 Canvas**, **CSS**, an
 Each animation frame passes through three clearly labelled stages in `script.js`:
 
 ### [STAGE 1] — Application Stage
-CPU-side logic only. Reads button clicks, advances the global timer, tracks which story page is active, and updates the mango-fall progress value. No canvas drawing occurs here.
+CPU-side logic only. Reads button clicks, advances the global timer, tracks which story page is active and updates the mango-fall progress value. No canvas drawing occurs here.
 
 ### [STAGE 2] — Geometry Stage
-`computeFrameGeometry()` computes every position, rotation, and scale value for the current frame using trigonometry and parametric equations:
+`computeFrameGeometry()` computes every position, rotation and scale value for the current frame using trigonometry and parametric equations:
 - **Sun** — sinusoidal vertical bob
 - **Clouds** — linear drift with modular wrap-around
 - **Giraffe** — triangle-wave walk cycle, tail wag, and vertical bounce
@@ -65,16 +65,7 @@ Each `draw*()` function converts the geometry object into pixels on the `<canvas
    ```
 2. Open `index.html` in any modern browser — no build step required.
 
----
 
-## How to Enable GitHub Pages
-
-1. Go to **Settings → Pages** in the repository
-2. Under **Source**, select **Deploy from a branch**
-3. Choose **main** branch, **/ (root)** folder
-4. Click **Save** — the live link will appear within a minute
-
----
 
 ## File Structure
 
