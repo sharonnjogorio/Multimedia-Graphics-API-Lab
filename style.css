@@ -1,0 +1,174 @@
+:root {
+  --paper:       #fbf3e4;
+  --paper-edge:  #efe3c8;
+  --ink:         #3a2a1e;
+  --ink-soft:    #6b5644;
+  --accent:      #c46a3f;
+  --accent-deep: #a14d24;
+  --shadow:      0 18px 50px -20px rgba(58, 42, 30, 0.35);
+  --sky:         #dceaf0;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 0%,   #fae0cc 0%, transparent 40%),
+    radial-gradient(circle at 80% 100%, #f0cba8 0%, transparent 40%),
+    #f5d8be;
+  color: var(--ink);
+  font-family: 'Nunito', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.book {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 0.55rem 1.1rem 0.45rem;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  overflow: hidden;
+}
+
+/* ----- Header ----- */
+.book__header {
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.book__eyebrow {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.15rem;
+  font-weight: 700;
+}
+
+.book__title {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  margin: 0;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+/* ----- Canvas stage ----- */
+/* Background matches the canvas sky so any letter-boxing is invisible */
+.stage-wrap {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sky);
+  border-radius: 18px;
+  padding: 8px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(58,42,30,0.12);
+}
+
+#stage {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* ----- Caption ----- */
+.caption {
+  flex-shrink: 0;
+  background: var(--paper);
+  border-radius: 12px;
+  padding: 0.55rem 1.1rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--paper-edge);
+  display: flex;
+  align-items: center;
+}
+
+#caption-text {
+  margin: 0;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+/* ----- Controls ----- */
+.controls {
+  flex-shrink: 0;
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.btn {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  border: none;
+  padding: 0.5rem 1.15rem;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+  letter-spacing: 0.01em;
+}
+
+.btn-icon {
+  width: 1.1em;
+  height: 1.1em;
+  flex-shrink: 0;
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn--primary:hover:not(:disabled) { background: var(--accent-deep); }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--paper-edge);
+}
+.btn--ghost:hover:not(:disabled) { background: var(--paper); }
+
+/* ----- Page indicator ----- */
+.page-indicator {
+  flex-shrink: 0;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 600px) {
+  .controls { flex-wrap: wrap; }
+  .btn { flex: 1 1 30%; padding: 0.45rem 0.6rem; }
+}
